@@ -3,7 +3,6 @@ figuresCards = ["bobross","explody", "fiesta", "metal", "revertit","triplet", "u
 function howManyCards(){
     
     let cards = prompt("How many cards?");
-
     condition = (cards%2 === 0 && cards >= 4 && cards <= 14);
 
     if(condition === false){
@@ -38,11 +37,13 @@ function selectCards(){
 
 function cardDealer(){
    let chosenCards = selectCards()
-   console.log(chosenCards)
   
    for(i=0;i< chosenCards.length; i++){
-        //console.log("."+ chosenCards[i])
-        console.log(document.querySelectorAll(chosenCards[i]));
+        var deltCards = document.querySelectorAll("." + chosenCards[i]);
+        deltCards.forEach(node => {
+            node.classList.remove('hidden');
+
+        });
         
     }
 
