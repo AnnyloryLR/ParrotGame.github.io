@@ -30,8 +30,6 @@ function selectCards(){
 
     for(i=0; i< (cardsNumber/2); i++){
         figuresCardsDraw.push(shuffled[i]);
-        
-
     }
 
    return figuresCardsDraw;
@@ -40,28 +38,17 @@ function selectCards(){
 
 function cardDealer(){
    let chosenCards = selectCards()
-   let dealFigureCards = []
-
+   console.log(chosenCards)
   
-    for(i=0; i < chosenCards.length;i++){
-        dealFigureCards.push(chosenCards[i]+"1")
-        dealFigureCards.push(chosenCards[i]+"2")    
-     
-    }
-    
-   return dealFigureCards
-}
- function dealer(){
-    let dealCards = cardDealer();
-    console.log(dealCards)
-
-    for(i=0;i<dealCards.length; i++){
-        let cardCount = document.querySelector("."+ dealCards[i]);
-        cardCount.classList.remove("hidden");
+   for(i=0;i< chosenCards.length; i++){
+        //console.log("."+ chosenCards[i])
+        console.log(document.querySelectorAll(chosenCards[i]));
         
     }
+
  }
- dealer()
+
+ cardDealer()
 
 /*function clickToturn(){}*/
  
