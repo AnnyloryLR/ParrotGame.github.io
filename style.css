@@ -20,15 +20,22 @@ body{
 }
 
 
-
 .page{
-   /* width: 60vw;
-    height: 40vh;*/
+
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
    
+}
+
+li{
+  display: flex;
+    
+    justify-content: center;
+    align-items: center;
+   
+
 }
 
 .card {

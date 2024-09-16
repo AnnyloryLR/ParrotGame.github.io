@@ -28,25 +28,36 @@ function selectCards(){
     figuresCardsDraw = [];
 
     for(i=0; i< (cardsNumber/2); i++){
-        figuresCardsDraw.push(shuffled[i]);
+        figuresCardsDraw.push(shuffled[i]+"1");
+        figuresCardsDraw.push(shuffled[i]+"2");
     }
 
    return figuresCardsDraw;
 
 }
 
-function cardDealer(){
-   let chosenCards = selectCards()
+
+ function cardDealer(){
+    const chosenCards = selectCards()
+    const deltCards = []
+    let finalShuffle = []
   
-   for(i=0;i< chosenCards.length; i++){
-        var deltCards = document.querySelectorAll("." + chosenCards[i]);
-        deltCards.forEach(node => {
-            node.classList.remove('hidden');
+  for(i=0;i< chosenCards.length; i++){
+        deltCards[i] = document.querySelector("." + chosenCards[i]);
+        console.log(deltCards[i])
+        //finalShuffle.push(deltCards[i]);
 
-        });
+    };
         
-    }
+    
 
+    finalShuffle = deltCards.sort(compare)
+    
+            
+    console.log(finalShuffle)
+        for(i=0;i<finalShuffle.length;i++){
+            (finalShuffle[i]).classList.remove('hidden')
+        }
  }
 
  cardDealer()
