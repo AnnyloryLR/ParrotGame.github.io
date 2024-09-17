@@ -1,7 +1,10 @@
+const figuresCards = ["bobross","explody", "fiesta", "metal", "revertit","triplet", "unicorn"]
+
+
 function compare(){
     return Math.random() - 0.5;
 }
-let figuresCards = ["bobross","explody", "fiesta", "metal", "revertit","triplet", "unicorn"]
+
 
     
 function shuffleList(){
@@ -45,7 +48,7 @@ function selectCards(){
 }
 
 
- function cardDealer(){
+function cardDealer(){
     const chosenCards = selectCards()
     const deltCards = []
     
@@ -56,19 +59,13 @@ function selectCards(){
         
     };
         
-    
-    
-            
-    
- }
 
- cardDealer()
+}
 
-/*function clickToturn(){}
- 
-(document.querySelector("."+ chosenCards[i]+"1")).classList.remove("hidden")
-     card1.classList.remove("hidden")
-     console.log("."+ chosenCards[i]+"1")
-     let card2 = document.querySelector("."+ chosenCards[i]+"2")
-     card2.classList.remove("hidden")
-     console.log("."+ chosenCards[i]+"2")*/
+cardDealer()
+
+function clickToturn(elemento){
+    elemento.classList.toggle('click')
+    
+
+}

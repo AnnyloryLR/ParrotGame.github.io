@@ -64,17 +64,21 @@ ul{
     transform-style: preserve-3d;
   }
 
-  .front-face {
+  /*.front-face {
+    transform: rotateY(180deg);
+  }*/
+
+  .click .front-face {
+    transform: rotateY(360deg);
+  }
+
+  .click .back-face {
     transform: rotateY(180deg);
   }
 
-  .card:hover .front-face {
+  /*.back-face{
     transform: rotateY(0deg);
-  }
-
-  .card:hover .back-face {
-    transform: rotateY(-180deg);
-  }
+  }*/
 
   img{
     width: 100px;
