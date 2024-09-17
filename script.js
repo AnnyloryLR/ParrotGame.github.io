@@ -1,4 +1,47 @@
-figuresCards = ["bobross","explody", "fiesta", "metal", "revertit","triplet", "unicorn"]
+function compare(){
+    return Math.random() - 0.5;
+}
+let figuresCards = ["bobross","explody", "fiesta", "metal", "revertit","triplet", "unicorn"]
+/*function test(){
+
+    let cardsList = document.querySelector('ul');
+    for(let i=0; i< cardsList.children.length;i++){
+       cardsList.appendChild(cardsList.children[Math.random() * i | 0]);
+    }
+    console.log(cardsList.children.length)
+
+
+    
+    let figuresCards=[]
+    inbetween = []
+    let shuffled = []
+    figuresCards = document.querySelectorAll('li')
+//
+    console.log(figuresCards)
+    console.log(figuresCards.length)
+    figuresCards = Array.from(figuresCards)
+    
+
+    shuffled = figuresCards.sort(compare)*/
+
+   /* for(let index= 0; index< cardsList.children.length; index++){
+        cardsList.childNodes[index]//.children//.children.classList
+
+    }
+
+
+    
+    }
+    test()*/
+
+    
+function shuffleList(){
+    let cardsList = document.querySelector('ul');
+    for(let i=0; i< cardsList.children.length;i++){
+       cardsList.appendChild(cardsList.children[Math.random() * i | 0]);
+    }
+}
+shuffleList()
 
 function howManyCards(){
     
@@ -18,14 +61,10 @@ function howManyCards(){
     return cards;
 }
 
-function compare(){
-    return Math.random() - 0.5;
-}
-
 function selectCards(){
     let cardsNumber = howManyCards()
     let shuffled  = figuresCards.sort(compare);
-    figuresCardsDraw = [];
+    let figuresCardsDraw = [];
 
     for(i=0; i< (cardsNumber/2); i++){
         figuresCardsDraw.push(shuffled[i]+"1");
@@ -40,33 +79,27 @@ function selectCards(){
  function cardDealer(){
     const chosenCards = selectCards()
     const deltCards = []
-    let finalShuffle = []
+    
   
   for(i=0;i< chosenCards.length; i++){
         deltCards[i] = document.querySelector("." + chosenCards[i]);
-        console.log(deltCards[i])
-        //finalShuffle.push(deltCards[i]);
-
+        deltCards[i].classList.remove('hidden')
+        
     };
         
     
-
-    finalShuffle = deltCards.sort(compare)
     
             
-    console.log(finalShuffle)
-        for(i=0;i<finalShuffle.length;i++){
-            (finalShuffle[i]).classList.remove('hidden')
-        }
+    
  }
 
  cardDealer()
 
-/*function clickToturn(){}*/
+/*function clickToturn(){}
  
-/*(document.querySelector("."+ chosenCards[i]+"1")).classList.remove("hidden")
-     //card1.classList.remove("hidden")
-     //console.log("."+ chosenCards[i]+"1")
-     //let card2 = document.querySelector("."+ chosenCards[i]+"2")
-     //card2.classList.remove("hidden")
-     //console.log("."+ chosenCards[i]+"2")*/
+(document.querySelector("."+ chosenCards[i]+"1")).classList.remove("hidden")
+     card1.classList.remove("hidden")
+     console.log("."+ chosenCards[i]+"1")
+     let card2 = document.querySelector("."+ chosenCards[i]+"2")
+     card2.classList.remove("hidden")
+     console.log("."+ chosenCards[i]+"2")*/

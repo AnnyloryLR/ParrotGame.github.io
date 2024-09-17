@@ -21,19 +21,21 @@ body{
 
 
 .page{
-
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
    
 }
 
-li{
+ul{
+  width:60%;
   display: flex;
-    
-    justify-content: center;
-    align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  
    
 
 }
