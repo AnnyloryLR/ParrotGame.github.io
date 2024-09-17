@@ -60,25 +60,25 @@ ul{
     justify-content: center;
     position: absolute;
     backface-visibility: hidden;
-    transition: all 1.0s;
+    transition: all 1.0s ease-out;
     transform-style: preserve-3d;
   }
 
-  /*.front-face {
+  .front-face {
     transform: rotateY(180deg);
-  }*/
+  }
 
   .click .front-face {
-    transform: rotateY(360deg);
+    transform: rotateY(0deg);
   }
 
   .click .back-face {
     transform: rotateY(180deg);
   }
 
-  /*.back-face{
+  .back-face{
     transform: rotateY(0deg);
-  }*/
+  }
 
   img{
     width: 100px;

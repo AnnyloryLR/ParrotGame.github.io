@@ -1,5 +1,5 @@
-const figuresCards = ["bobross","explody", "fiesta", "metal", "revertit","triplet", "unicorn"]
-
+const figuresCards = ["bobross","explody", "fiesta", "metal", "revertit","triplet", "unicorn"];
+let clickCount = 0;
 
 function compare(){
     return Math.random() - 0.5;
@@ -66,6 +66,14 @@ cardDealer()
 
 function clickToturn(elemento){
     elemento.classList.toggle('click')
-    
+    clickCount++
 
+    return clickCount
+    
 }
+
+/*function attemptToWin(){
+    nuberOfAttempts = clickCount
+    alert(nuberOfAttempts)
+}
+attemptToWin()*/
