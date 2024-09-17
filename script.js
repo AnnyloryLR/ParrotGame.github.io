@@ -2,37 +2,6 @@ function compare(){
     return Math.random() - 0.5;
 }
 let figuresCards = ["bobross","explody", "fiesta", "metal", "revertit","triplet", "unicorn"]
-/*function test(){
-
-    let cardsList = document.querySelector('ul');
-    for(let i=0; i< cardsList.children.length;i++){
-       cardsList.appendChild(cardsList.children[Math.random() * i | 0]);
-    }
-    console.log(cardsList.children.length)
-
-
-    
-    let figuresCards=[]
-    inbetween = []
-    let shuffled = []
-    figuresCards = document.querySelectorAll('li')
-//
-    console.log(figuresCards)
-    console.log(figuresCards.length)
-    figuresCards = Array.from(figuresCards)
-    
-
-    shuffled = figuresCards.sort(compare)*/
-
-   /* for(let index= 0; index< cardsList.children.length; index++){
-        cardsList.childNodes[index]//.children//.children.classList
-
-    }
-
-
-    
-    }
-    test()*/
 
     
 function shuffleList(){
