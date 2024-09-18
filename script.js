@@ -1,6 +1,6 @@
 const figuresCards = ["bobross","explody", "fiesta", "metal", "revertit","triplet", "unicorn"];
 let clickCount = 0;
-
+let cardsPair = []
 function compare(){
     return Math.random() - 0.5;
 }
@@ -64,16 +64,48 @@ function cardDealer(){
 
 cardDealer()
 
+
+
+
 function clickToturn(elemento){
-    elemento.classList.toggle('click')
-    clickCount++
+   
 
-    return clickCount
+    let pair=0;
+    elemento.classList.toggle('click');
+    elemento.classList.add('selecionado');
+    selecionado = document.querySelector('.selecionado')
+
     
+    if(selecionado !== null){
+            cardsPair.push(elemento.querySelector('img'))
+
+       
+    }
+
+    clickCount++
+    console.log(clickCount)
+   
 }
 
-/*function attemptToWin(){
-    nuberOfAttempts = clickCount
-    alert(nuberOfAttempts)
+function removeClick(){
+    const selecionados = document.querySelectorAll('.click')
+    selecionados.forEach((selecionado) => {selecionado.classList.remove('click')})
+
+
 }
-attemptToWin()*/
+
+function assessPair(){
+   
+    if(cardsPair.length === 2){
+       let card1 = cardsPair[0].getAttribute('src')
+       let card2 = cardsPair[1].getAttribute('src')
+            if(card1 !== card2){
+                setTimeout(removeClick, 1500)
+                cardsPair = []
+
+         }
+
+         
+    }
+
+}  
