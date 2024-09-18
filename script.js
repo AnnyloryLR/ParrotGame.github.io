@@ -74,7 +74,8 @@ function clickToturn(elemento){
     let pair=0;
     elemento.classList.toggle('click');
     elemento.classList.add('selecionado');
-    selecionado = document.querySelector('.selecionado')
+    elemento.classList.add('turned');
+    selecionado = document.querySelector('.selecionado');
 
     
     if(selecionado !== null){
@@ -89,9 +90,19 @@ function clickToturn(elemento){
 }
 
 function removeClick(){
-    const selecionados = document.querySelectorAll('.click')
-    selecionados.forEach((selecionado) => {selecionado.classList.remove('click')})
+    const selecionados = document.querySelectorAll('.notMatch')
+    selecionados.forEach((selecionado) => {selecionado.classList.remove('click');selecionado.classList.remove('turned')})
+    }
 
+function addNoMatch(){
+    const notMatch = document.querySelectorAll('.turned')
+    notMatch.forEach((notMatchee) => {notMatchee.classList.add('notMatch')})
+
+}
+
+function removeNoMatch(){
+    const unpaired = document.querySelectorAll('.turned')
+    unpaired.forEach((unpair) => {unpair.classList.remove('notMatch');unpair.classList.remove('turned')})     
 
 }
 
@@ -101,20 +112,26 @@ function assessPair(){
        let card1 = cardsPair[0].getAttribute('src')
        let card2 = cardsPair[1].getAttribute('src')
             if(card1 !== card2){
+                addNoMatch()
                 setTimeout(removeClick, 1500)
                 cardsPair = []
+                console.log(cardsPair)
 
             }
             else{
+                removeNoMatch()
                 matchedCards.push(card1,card2)
                 cardsPair = []
+                console.log(cardsPair)
+                console.log(clickCount)
+
+                       
     
     
             }
-
-         
+ 
     }
 
-   
-
+    
+    
 }  
