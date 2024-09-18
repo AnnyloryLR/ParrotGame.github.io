@@ -1,6 +1,7 @@
 const figuresCards = ["bobross","explody", "fiesta", "metal", "revertit","triplet", "unicorn"];
 let clickCount = 0;
 let cardsPair = []
+const matchedCards = []
 function compare(){
     return Math.random() - 0.5;
 }
@@ -103,9 +104,17 @@ function assessPair(){
                 setTimeout(removeClick, 1500)
                 cardsPair = []
 
-         }
+            }
+            else{
+                matchedCards.push(card1,card2)
+                cardsPair = []
+    
+    
+            }
 
          
     }
+
+   
 
 }  
