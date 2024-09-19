@@ -1,13 +1,13 @@
 const figuresCards = ["bobross","explody", "fiesta", "metal", "revertit","triplet", "unicorn"];
+let cardsNumber = howManyCards();
 let clickCount = 0;
 let cardsPair = [];
 const matchedCards = [];
+
 function compare(){
     return Math.random() - 0.5;
 }
 
-
-    
 function shuffleList(){
     let cardsList = document.querySelector('ul');
     for(let i=0; i< cardsList.children.length;i++){
@@ -20,7 +20,7 @@ shuffleList()
 function howManyCards(){
     
     let cards = prompt("How many cards?");
-    const condition = (cards%2 === 0 && cards >= 4 && cards <= 14);
+    let condition = (cards%2 === 0 && cards >= 4 && cards <= 14);
 
     if(condition === false){
 
@@ -36,7 +36,6 @@ function howManyCards(){
 }
 
 function selectCards(){
-    let cardsNumber = howManyCards();
     let shuffled  = figuresCards.sort(compare);
     let figuresCardsDraw = [];
 
@@ -48,7 +47,6 @@ function selectCards(){
    return figuresCardsDraw;
 
 }
-
 
 function cardDealer(){
     const chosenCards = selectCards();
@@ -96,13 +94,13 @@ function removeNoMatch(){
 }
 
 function assessPair(){
-   
-    if(cardsPair.length === 2){
+    
+    if(cardsPair.length === 2 && matchedCards.length < cardsNumber){
        let card1 = cardsPair[0].getAttribute('src');
        let card2 = cardsPair[1].getAttribute('src');
             if(card1 !== card2){
                 addNoMatch();
-                setTimeout(removeClick, 1500);
+                setTimeout(removeClick, 1000);
                 cardsPair = [];
                 
             }
@@ -111,6 +109,25 @@ function assessPair(){
                 matchedCards.push(card1,card2);
                 cardsPair = [];
             }
+
+        return matchedCards;          
     }
-    
+   
 }  
+function youWin(){
+    alert(`You won! Took you only ${clickCount} attempts`)
+   
+}
+
+function gameWon(){
+    let numberOfMatches = (matchedCards.length);
+    
+    if( cardsNumber == matchedCards.length){
+        setTimeout(youWin,1500)
+        
+    }
+        
+}
+
+
+
