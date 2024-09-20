@@ -19,13 +19,13 @@ shuffleList()
 
 function howManyCards(){
     
-    let cards = prompt("How many cards?");
+    let cards = prompt("Com quantas cartas quer jogar?");
     let condition = (cards%2 === 0 && cards >= 4 && cards <= 14);
 
     if(condition === false){
 
         do {
-            cards = prompt("How many cards?");
+            cards = prompt("Com quantas cartas quer jogar?");
             condition = (cards%2 === 0 && cards >= 4 && cards <= 14);
         }
 
@@ -115,7 +115,7 @@ function assessPair(){
    
 }  
 function youWin(){
-    alert(`You won! Took you only ${clickCount} attempts`)
+    alert(`Você ganhou em ${clickCount} jogadas`)
    
 }
 
