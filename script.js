@@ -115,7 +115,7 @@ function assessPair(){
    
 }  
 function youWin(){
-    alert(`Você ganhou em ${clickCount} jogadas`)
+    alert(`Você ganhou em ${clickCount} jogadas!`)
    
 }
 
