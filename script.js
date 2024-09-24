@@ -2,7 +2,7 @@ const figuresCards = ["bobross","explody", "fiesta", "metal", "revertit","triple
 let cardsNumber = howManyCards();
 let clickCount = 0;
 let cardsPair = [];
-const matchedCards = [];
+let matchedCards = [];
 
 function compare(){
     return Math.random() - 0.5;
@@ -115,19 +115,34 @@ function assessPair(){
    
 }  
 function youWin(){
-    alert(`Você ganhou em ${clickCount} jogadas!`)
+    alert(`Você ganhou em ${clickCount} jogadas!`);
    
 }
 
 function gameWon(){
-    let numberOfMatches = (matchedCards.length);
-    
-    if( cardsNumber == matchedCards.length){
-        setTimeout(youWin,1500)
+   
+    if(parseInt(cardsNumber) === parseInt(matchedCards.length)){
+        setTimeout(youWin,1500);
+        matchedCards.push('you won, stop!');
+        /*setTimeout(WannaStartAgain,2000);*/
         
     }
-        
+   
 }
+
+/*function WannaStartAgain(){
+    let startAgain = prompt("Gostaria de jogar novamente?")
+
+    if(startAgain == "sim"){
+        cardsNumber = 0;
+        clickCount = 0;
+        cardsPair = [];
+        matchedCards = [];
+        howManyCards();
+
+    }
+
+}*/
 
 
 
