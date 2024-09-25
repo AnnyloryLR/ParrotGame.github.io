@@ -72,9 +72,12 @@ function clickToturn(element){
 
     if(selected !== null){
             let oneCard = element.querySelector('img')
+            console.log(!cardsPair.includes(oneCard))
+            console.log(cardsPair)
+            element.classList.remove('selected');
             if(!cardsPair.includes(oneCard)){
                 cardsPair.push(oneCard);
-                element.classList.remove('selected');
+                
     
             }       
     }
@@ -84,7 +87,8 @@ function clickToturn(element){
 
 function removeClick(){
     const chosen = document.querySelectorAll('.notMatch');
-    chosen.forEach((selectedOne) => {selectedOne.classList.remove('click');selectedOne.classList.remove('turned')});
+    chosen.forEach((selectedOne) => {selectedOne.classList.remove('click')});
+    chosen.forEach((selectedOne) => {selectedOne.classList.remove('turned')});
 }
 
 function addNoMatch(){
@@ -94,14 +98,17 @@ function addNoMatch(){
 
 function removeNoMatch(){
     const unpaired = document.querySelectorAll('.turned');
-    unpaired.forEach((unpair) => {unpair.classList.remove('notMatch');unpair.classList.remove('turned')});    
+    unpaired.forEach((unpair) => {unpair.classList.remove('notMatch')}); 
+    unpaired.forEach((unpair) => {unpair.classList.remove('turned')});   
 }
 
 function assessPair(){
-    
-    if(cardsPair.length === 2 /*&& matchedCards.length < cardsNumber*/){
-       let card1 = cardsPair[0].getAttribute('src');
-       let card2 = cardsPair[1].getAttribute('src');
+   
+    if(cardsPair.length === 2 ){
+        let card1 = cardsPair[cardsPair.length -1].getAttribute('src');
+        let card2 = cardsPair[cardsPair.length -2].getAttribute('src');
+
+       
             if(card1 !== card2){
                 addNoMatch();
                 setTimeout(removeClick, 1000);
@@ -109,13 +116,14 @@ function assessPair(){
                 
             }
             else if(!matchedCards.includes(card1) && !matchedCards.includes(card2)){
-                console.log(matchedCards.includes(card1))
-                console.log(matchedCards.includes(card2))
+                
                 removeNoMatch();
                 matchedCards.push(card1,card2);
-                console.log(matchedCards)
-                print()
                 cardsPair = [];
+            }
+            else{
+                removeNoMatch();
+
             }
 
         return matchedCards;          
