@@ -71,8 +71,12 @@ function clickToturn(element){
     selected = document.querySelector('.selected');
 
     if(selected !== null){
-            cardsPair.push(element.querySelector('img'));
-
+            let oneCard = element.querySelector('img')
+            if(!cardsPair.includes(oneCard)){
+                cardsPair.push(oneCard);
+                element.classList.remove('selected');
+    
+            }       
     }
 
     clickCount++;
@@ -95,7 +99,7 @@ function removeNoMatch(){
 
 function assessPair(){
     
-    if(cardsPair.length === 2 && matchedCards.length < cardsNumber){
+    if(cardsPair.length === 2 /*&& matchedCards.length < cardsNumber*/){
        let card1 = cardsPair[0].getAttribute('src');
        let card2 = cardsPair[1].getAttribute('src');
             if(card1 !== card2){
@@ -104,16 +108,21 @@ function assessPair(){
                 cardsPair = [];
                 
             }
-            else{
+            else if(!matchedCards.includes(card1) && !matchedCards.includes(card2)){
+                console.log(matchedCards.includes(card1))
+                console.log(matchedCards.includes(card2))
                 removeNoMatch();
                 matchedCards.push(card1,card2);
+                console.log(matchedCards)
+                print()
                 cardsPair = [];
             }
 
         return matchedCards;          
     }
-   
-}  
+}
+
+    
 function youWin(){
     alert(`Você ganhou em ${clickCount} jogadas!`);
    
