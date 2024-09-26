@@ -69,18 +69,12 @@ function clickToturn(element){
     element.classList.add('selected');
     element.classList.add('turned');
     selected = document.querySelector('.selected');
-
+   
     if(selected !== null){
             let oneCard = element.querySelector('img')
-            console.log(oneCard)
-            console.log(!cardsPair.includes(oneCard))
             element.classList.remove('selected');
             cardsPair.push(oneCard);
-            /*if(!cardsPair.includes(oneCard)){
-                
-                
-    
-            }*/      
+           
     }
 
     clickCount++;
@@ -89,7 +83,6 @@ function clickToturn(element){
 function removeClick(){
     const chosen = document.querySelectorAll('.notMatch');
     chosen.forEach((selectedOne) => {selectedOne.classList.remove('click')});
-    chosen.forEach((selectedOne) => {selectedOne.classList.remove('turned')});
 }
 
 function addNoMatch(){
@@ -104,14 +97,10 @@ function removeNoMatch(){
 }
 
 function assessPair(){
-    console.log(cardsPair)
-    if(cardsPair.length === 2 ){
+    if(cardsPair.length >= 2 ){
         let card1 = cardsPair[cardsPair.length -1].getAttribute('src');
-        console.log(card1)
         let card2 = cardsPair[cardsPair.length -2].getAttribute('src');
-        console.log(card2)
-
-       
+            
             if(card1 !== card2){
                 addNoMatch();
                 setTimeout(removeClick, 1000);
@@ -135,7 +124,6 @@ function youWin(){
 }
 
 function gameWon(){
-    console.log(matchedCards)
     if(parseInt(cardsNumber) === parseInt(matchedCards.length)){
         setTimeout(youWin,1500);
         matchedCards.push('you won, stop!');
