@@ -72,14 +72,15 @@ function clickToturn(element){
 
     if(selected !== null){
             let oneCard = element.querySelector('img')
+            console.log(oneCard)
             console.log(!cardsPair.includes(oneCard))
-            console.log(cardsPair)
             element.classList.remove('selected');
-            if(!cardsPair.includes(oneCard)){
-                cardsPair.push(oneCard);
+            cardsPair.push(oneCard);
+            /*if(!cardsPair.includes(oneCard)){
+                
                 
     
-            }       
+            }*/      
     }
 
     clickCount++;
@@ -103,10 +104,12 @@ function removeNoMatch(){
 }
 
 function assessPair(){
-   
+    console.log(cardsPair)
     if(cardsPair.length === 2 ){
         let card1 = cardsPair[cardsPair.length -1].getAttribute('src');
+        console.log(card1)
         let card2 = cardsPair[cardsPair.length -2].getAttribute('src');
+        console.log(card2)
 
        
             if(card1 !== card2){
@@ -116,16 +119,11 @@ function assessPair(){
                 
             }
             else if(!matchedCards.includes(card1) && !matchedCards.includes(card2)){
-                
                 removeNoMatch();
                 matchedCards.push(card1,card2);
                 cardsPair = [];
             }
-            else{
-                removeNoMatch();
-
-            }
-
+            
         return matchedCards;          
     }
 }
@@ -137,7 +135,7 @@ function youWin(){
 }
 
 function gameWon(){
-   
+    console.log(matchedCards)
     if(parseInt(cardsNumber) === parseInt(matchedCards.length)){
         setTimeout(youWin,1500);
         matchedCards.push('you won, stop!');
