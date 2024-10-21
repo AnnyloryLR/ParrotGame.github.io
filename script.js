@@ -120,32 +120,27 @@ function assessPair(){
     
 function youWin(){
     alert(`Você ganhou em ${clickCount} jogadas!`);
+    let finished = document.querySelector(".finished");
+    finished.classList.remove("unseen");
+        
    
 }
 
 function gameWon(){
     if(parseInt(cardsNumber) === parseInt(matchedCards.length)){
-        setTimeout(youWin,1500);
+        setTimeout(youWin,500);
         matchedCards.push('you won, stop!');
-        /*setTimeout(WannaStartAgain,2000);*/
         
     }
    
 }
 
-/*function WannaStartAgain(){
-    let startAgain = prompt("Gostaria de jogar novamente?")
+function reloading() {
+    location.reload();
+}
 
-    if(startAgain == "sim"){
-        cardsNumber = 0;
-        clickCount = 0;
-        cardsPair = [];
-        matchedCards = [];
-        howManyCards();
 
-    }
-
-}*/
+  
 
 
 

@@ -6,9 +6,31 @@ html{
    
   height: 100%;
   font-family: "Roboto";
-  background-color: #EEF9BF;
-  
+ 
     
+}
+
+.game_color{
+  background-color: #EEF9BF;
+  z-index: 1;
+
+}
+.finished{
+  height: 100%;
+  width: 100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(206, 227, 208,0.7);
+  position:fixed;
+  top:0;
+  bottom: -1;
+  z-index: 5;
+
+}
+
+.unseen{
+  display:none;
 }
 
 body{
@@ -63,6 +85,7 @@ h1{
     position: relative;
     margin-right: 34px;
     margin-bottom: 34px;
+    z-index: 2;
   }
 
   .face {
@@ -78,6 +101,7 @@ h1{
     backface-visibility: hidden;
     transition: all 1.0s ease-out;
     transform-style: preserve-3d;
+    z-index: 2;
   }
 
   .front-face {
@@ -138,6 +162,17 @@ h1{
       height: 46rem;
     }
 
+  }
+
+  .button {
+    height: 100px;
+    width: 330px;
+    border-radius: 50px;
+    font-size: 28px;
+    background-color: #70d3ff;
+    color: #008080;
+    font-weight: 700;
+    position: relative;
   }
 
  
